@@ -1,0 +1,9 @@
+{
+  "name": "nominal",
+  "description": "No fault is injected, the system must stay in NOMINAL.",
+  "total_cycles": 20,
+  "fault": null,
+  "expected": {
+    "final_state": "NOMINAL"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "attitude_loss",
+  "description": "Attitude error becomes too large at cycle 8.",
+  "total_cycles": 20,
+  "fault": {
+    "cycle": 8,
+    "sensor": "attitude_error_deg",
+    "value": 45.0
+  },
+  "expected": {
+    "final_state": "SAFE_MODE",
+    "max_cycles_after_fault": 2
+  }
+}

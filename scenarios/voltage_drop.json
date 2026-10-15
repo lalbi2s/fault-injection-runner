@@ -1,0 +1,14 @@
+{
+  "name": "voltage_drop",
+  "description": "Battery voltage falls below the minimum at cycle 5.",
+  "total_cycles": 20,
+  "fault": {
+    "cycle": 5,
+    "sensor": "battery_voltage",
+    "value": 2.8
+  },
+  "expected": {
+    "final_state": "SAFE_MODE",
+    "max_cycles_after_fault": 2
+  }
+}
