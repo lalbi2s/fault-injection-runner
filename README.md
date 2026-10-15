@@ -2,6 +2,8 @@
 
 A small command-line test bench that simulates a flight scenario, injects a fault and checks that the system switches to SAFE_MODE within the expected time. Time is counted in simulated cycles, so runs are fast and reproducible.
 
+In critical systems, passing the nominal case is not enough: the software must also react correctly when hardware fails.
+
 ## Stack
 
 - Python 3.12
@@ -10,7 +12,9 @@ A small command-line test bench that simulates a flight scenario, injects a faul
 
 ## Installation and usage
 
-```
+```bash
+git clone https://github.com/lalbi2s/fault-injection-runner.git
+cd fault-injection-runner
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install pytest
@@ -18,7 +22,7 @@ pip install pytest
 
 Run one or more scenarios:
 
-```
+```bash
 python main.py scenarios/nominal.json scenarios/voltage_drop.json scenarios/attitude_loss.json
 ```
 
@@ -31,13 +35,13 @@ The program exits with code 0 if all scenarios pass and 1 if at least one fails.
 
 Run the tests:
 
-```
+```bash
 python -m pytest
 ```
 
 ## Example
 
-```
+```bash
 $ python main.py scenarios/voltage_drop.json
 [PASS] voltage_drop: all expectations met
     cycle 5: fault injected, battery_voltage = 2.8
@@ -71,3 +75,7 @@ A scenario file looks like this:
 - Several faults in one scenario
 - A way to return from SAFE_MODE to NOMINAL
 - JUnit XML output for continuous integration
+
+## License
+
+MIT, see LICENSE.
